@@ -30,6 +30,9 @@ const deleteUser = async(id: string) => {
     const responseItem = await UserModel.findOneAndRemove({_id: id});
     return responseItem;
 }
+const getStateOfTheUser = async(id: string) => {
+    const responseItem = await UserModel.findOne({_id: id}).populate('state');
+    return responseItem;
+};
 
-
-export { insertUser, getUser, getUsers, updateUser, deleteUser };
+export { insertUser, getUser, getUsers, updateUser, deleteUser, getStateOfTheUser };

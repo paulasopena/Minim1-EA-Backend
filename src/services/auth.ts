@@ -11,7 +11,7 @@ function isEmail(input: string): boolean {
   return pattern.test(input);
 }
 
-const registerNewUser = async ({ email, password, name, surname, role }: User) => {
+const registerNewUser = async ({ email, password, name, surname, role, state }: User) => {
  
   
   const allowedRoles = ["admin", "need", "help"];
@@ -27,7 +27,7 @@ const registerNewUser = async ({ email, password, name, surname, role }: User) =
 
   const passHash = await encrypt(password); 
 
-  const registerNewUser = await UserModel.create({email, password: passHash, name, surname, role});
+  const registerNewUser = await UserModel.create({email, password: passHash, name, surname, role,state});
   return registerNewUser;
 };
 

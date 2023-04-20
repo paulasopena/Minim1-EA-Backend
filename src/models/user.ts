@@ -29,6 +29,10 @@ const UserSchema = new Schema<User>(
             required:true,
 
         },
+        state:{
+            type: Schema.Types.ObjectId,
+            ref: 'states'
+        }
     },
     {
         timestamps: true,
